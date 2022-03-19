@@ -1,0 +1,77 @@
+---
+title: "R Notebook"
+  word_document: default
+  html_notebook: default
+  pdf_document: default
+---
+```{r}
+#M3 <- opts_knit$set(root.dir = "/Users/Bryan/Desktop/INFOSYS6830")
+#M3
+```
+
+```{r}
+A <- matrix(c(1:9), nrow = 3, byrow = TRUE)      #create matrix A
+A
+```
+
+```{r}
+B <- matrix(c(1,2,3,2,1,7,7,8,9), nrow=3, byrow = TRUE)       #matix B
+B
+```
+
+```{r}
+A*B                         #element-wise multiply
+```
+```{r}
+A%*%B                     #matrix multiply
+```
+```{r}
+#install.packages("imager", dependencies = TRUE)   #install and load imager
+#library("imager")
+```
+```{r}
+image=load.image(file.choose())        #load image
+```
+
+```{r}
+dim(image)             #image dimension
+```
+
+```{r}
+plot(image)                  #plot the image
+```
+
+```{r}
+Apple=gtrends("Apple", time = "2019-01-01 2019-12-31")
+
+Apple$interest_over_time             #gtrend apple interest over time
+```
+```{r}
+apple_data <- read.csv("/Users/Bryan/Downloads/AAPL.csv")   #read CSV
+apple_data
+```
+
+```{r}
+#plot 2019 opening prices from the CSV 
+
+apple_plot <- plot(as.factor(apple_data$Date), apple_data$Open, 
+                   main = "Apple Opening Price in 2019",
+                   xlab = "Date",
+                   ylab = "Open Price")
+
+```
+
+```{r}
+Apple$interest_over_time$date             #plot interest over time in 2019
+Apple$interest_over_time$date
+
+plot(Apple$interest_over_time$date, Apple$interest_over_time$hits, type = 'l' )
+              
+                    # I don't see much of a correlation between the two
+                    # plots. I'm assuming that large spike in interest in late
+                    # August had to do with a new product being introduced.
+```
+
+
+
+
